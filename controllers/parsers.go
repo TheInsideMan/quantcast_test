@@ -6,7 +6,6 @@ import (
     "time"
 )
 
-
 func TimeConvert(layout string,strTime string) (time.Time, error) {
     // layout := "2006-01-02" 
     timeArgument, err := time.Parse(layout, strTime)
@@ -32,7 +31,7 @@ func OpenCsvFile(fileCommandValue string) ([][]string,error) {
     return csvLines,err
 }
 
-func GetCookieMap(csvLines [][]string,timeArgument time.Time) map[string]int {
+func GetCookieMap(csvLines [][]string,specifiedDay time.Time) map[string]int {
     // create a golang map for storing the cookie objects and how many times they occour in csv
     summedCookieMap := make(map[string]int)
     for _, line := range csvLines {
@@ -43,7 +42,7 @@ func GetCookieMap(csvLines [][]string,timeArgument time.Time) map[string]int {
         }
         
         // skip any dates that do not match calendar day `d` from terminal command
-        if csvRowDay.Day() != timeArgument.Day() {
+        if csvRowDay.Day() != specifiedDay.Day() {
             continue   
         }
         // either insert or +1 the value of cookie in map
@@ -53,7 +52,6 @@ func GetCookieMap(csvLines [][]string,timeArgument time.Time) map[string]int {
     previousKey := ""
     previousValue := 1
     highestValue := 1
-    // check if summedCookieMap is empty
     for k, v := range summedCookieMap {
         if v < highestValue {
             delete(summedCookieMap, k);
