@@ -1,11 +1,18 @@
-FROM golang:latest
+FROM --platform=${BUILDPLATFORM} golang:1.13.3-alpine AS build
+WORKDIR /go/src/QuantCast
+ENV CGO_ENABLED=0
+COPY . .
+ARG TARGETOS
+ARG TARGETARCH
+RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -o /out/quantcast .
 
-RUN mkdir /build
-WORKDIR /build
+FROM scratch AS bin-unix
+COPY --from=build /out/quantcast /
 
-RUN export GO111MODULE=on
-RUN go get github.com/TheInsideMan/quantcast_test
-RUN cd /build && git clone https://github.com/TheInsideMan/quantcast_test/GoTerminal.git
-RUN cd /build/GoTerminal/main && go build
+FROM bin-unix AS bin-linux
+FROM bin-unix AS bin-darwin
 
-ENTRYPOINT [ "/build/GoTerminal/main/main" ]
+FROM scratch AS bin-windows
+COPY --from=build /out/quantcast /example.exe
+
+FROM bin-${TARGETOS} AS bin
