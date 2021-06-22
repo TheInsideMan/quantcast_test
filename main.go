@@ -3,7 +3,7 @@ package main
 import (
     "fmt"
     "flag"
-    controllers "./controllers"
+    controllers "github.com/TheInsideMan/quantcast_test/controllers"
 )
 
 // I could build a test to check if there is a '.csv' file in the root
