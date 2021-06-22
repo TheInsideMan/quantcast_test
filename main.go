@@ -3,21 +3,9 @@ package main
 import (
     "fmt"
     "flag"
-    "testing"
     controllers "QuantCast/controllers"
 )
 
-func TestEcho(t *testing.T) {
-    // Test happy path
-    err := echo([]string{"bin-name", "hello", "world!"})
-    require.NoError(t, err)
-}
-
-func TestEchoErrorNoArgs(t *testing.T) {
-    // Test empty arguments
-    err := echo([]string{})
-    require.Error(t, err)
-}
 
 // I could build a test to check if there is a '.csv' file in the root
 
