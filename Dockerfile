@@ -11,10 +11,7 @@ ARG TARGETARCH
 RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -o /out/cookie_parser .
 
 FROM base AS unit-test
-
 RUN mkdir -p /out && go test -v -coverprofile=/out/cover.out ./...
-
-FROM golangci/golangci-lint:v1.31.0-alpine AS lint-base
 
 FROM scratch AS unit-test-coverage
 COPY --from=unit-test /out/cover.out /cover.out

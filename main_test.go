@@ -3,6 +3,7 @@ package main
 import (
 	"testing"
 	"fmt"
+	"os"
 	// "github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/assert"
 )
@@ -14,7 +15,7 @@ func TestSomething(t *testing.T) {
 }
 
 func assertFileExists(t *testing.T) {
-	path := "cookie_log.csv"
+	path := "cookie_log2.csv"
 	_, err := os.Lstat(path)
 	if err != nil {
 		if os.IsNotExist(err) {
