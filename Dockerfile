@@ -1,19 +1,14 @@
-# syntax = docker/dockerfile:1-experimental
-
 FROM --platform=${BUILDPLATFORM} golang:1.15.2-alpine AS base
 WORKDIR ./src/QuantCast
 ENV CGO_ENABLED=0
-COPY go.* .
+COPY . ./
 RUN --mount=type=cache,target=/go/pkg/mod \
     go mod download
 
 FROM base AS build
 ARG TARGETOS
 ARG TARGETARCH
-RUN --mount=target=. \
-    --mount=type=cache,target=/go/pkg/mod \
-    --mount=type=cache,target=/root/.cache/go-build \
-    GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -o /out/cookie_parser .
+RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -o /out/cookie_parser .
 
 FROM base AS unit-test
 
