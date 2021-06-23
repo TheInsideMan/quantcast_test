@@ -32,7 +32,8 @@ func main() {
     // print out the most active cookies!
     for k, _ := range summedCookieMap {
         fmt.Println(k)
+        
         // print with the number of occourances as well
-        // fmt.Println(k +" - "+ strconv.Itoa(v))
+        // fmt.Println(value)
     }
 }
