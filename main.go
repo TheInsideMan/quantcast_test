@@ -6,9 +6,6 @@ import (
     controllers "QuantCast/controllers"
 )
 
-
-// I could build a test to check if there is a '.csv' file in the root
-
 func main() {
     fmt.Println("starting program")
     // retrieve the command line arguments
