@@ -2,14 +2,15 @@ package main
 
 import (
 	"testing"
+	"fmt"
 	// "github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestSomething(t *testing.T) {
-
+	fmt.Println("running TestSomething")
   // assert equality
-	assert.Equal(t, 123, 124, "they should be equal")
+	assert.Equal(t, 123, 123, "they should be equal")
 }
 
 

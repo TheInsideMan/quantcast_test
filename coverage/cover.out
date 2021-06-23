@@ -1,0 +1,7 @@
+mode: set
+QuantCast/main.go:12.13,20.19 5 0
+QuantCast/main.go:26.5,27.19 2 0
+QuantCast/main.go:32.5,35.39 2 0
+QuantCast/main.go:20.19,22.6 1 0
+QuantCast/main.go:27.19,29.6 1 0
+QuantCast/main.go:35.39,39.6 1 0
