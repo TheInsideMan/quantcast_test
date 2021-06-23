@@ -7,6 +7,7 @@ https://github.com/TheInsideMan/quantcast_test
 2. This project uses BuildKit so please run `$ export DOCKER_BUILDKIT=1`.
 3. To build the docker container run `$ make`.
 4. To use the new container `$ ./bin/cookie_parser -f cookie_log.csv -d 2018-12-09`.
+5. If you are having issue with Docker please run `$ go build` to build without Docker.
 
 ## Unit Testing
 If you want to unit test first `$ make unit-test` (note when working locally `make` must always be ran before `make unit-test`).
