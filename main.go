@@ -3,7 +3,7 @@ package main
 import (
     "fmt"
     "flag"
-    controllers "QuantCast/controllers"
+    controllers "quantcast_test/controllers"
 )
 
 func main() {

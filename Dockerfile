@@ -1,5 +1,5 @@
 FROM --platform=${BUILDPLATFORM} golang:1.15.2-alpine AS base
-WORKDIR ./src/QuantCast
+WORKDIR ./src/quantcast_test
 ENV CGO_ENABLED=0
 COPY . ./
 RUN --mount=type=cache,target=/go/pkg/mod \

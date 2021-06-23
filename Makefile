@@ -1,10 +1,10 @@
-all: bin/quantcast
+all: bin/quantcast_test
 test: lint unit-test
 
 PLATFORM=local
 
-.PHONY: bin/quantcast
-bin/quantcast:
+.PHONY: bin/quantcast_test
+bin/quantcast_test:
 	@docker build . --target bin \
 	--output bin/ \
 	--platform ${PLATFORM}
