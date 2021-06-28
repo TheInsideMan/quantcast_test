@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 	// "github.com/stretchr/testify/require"
-	"github.com/stretchr/testify/assert"
+	"../pkg/stretchr/testify/assert"
 )
 
 func TestFileExists(t *testing.T) {

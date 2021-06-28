@@ -23,6 +23,7 @@ func main() {
     // `layout` indicates to golang how it should parse the string into a time obj
     specifiedDay,err := controllers.TimeConvert("2006-01-02", *dateCommandStringValue)
     if err != nil {
+        fmt.Println("Invalid date provided.")
         return
     }
 
@@ -32,7 +33,6 @@ func main() {
     // print out the most active cookies!
     for k, _ := range summedCookieMap {
         fmt.Println(k)
-        
         // print with the number of occourances as well
         // fmt.Println(value)
     }

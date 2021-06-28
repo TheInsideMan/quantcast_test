@@ -1,4 +1,4 @@
-FROM --platform=${BUILDPLATFORM} golang:1.15.2-alpine AS base
+FROM --platform=${BUILDPLATFORM} golang:latest AS base
 WORKDIR ./src/quantcast_test
 ENV CGO_ENABLED=0
 COPY . ./
